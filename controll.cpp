@@ -1,5 +1,5 @@
 /*
- * File:          Controlador.cpp
+ * File:          Controll.cpp
  * Date:
  * Description:
  * Author:
@@ -31,7 +31,6 @@ int main(int argc, char **argv) {
 
     Supervisor *robot = new Supervisor();
     
-    // Configuração dos motores
     Motor *MotorEsquerdo = robot->getMotor("left wheel motor");
     Motor *MotorDireito = robot->getMotor("right wheel motor");
     MotorEsquerdo->setPosition(INFINITY);
@@ -39,7 +38,6 @@ int main(int argc, char **argv) {
     MotorEsquerdo->setVelocity(0);
     MotorDireito->setVelocity(0);
 
-    // Configuração dos sensores de proximidade
     DistanceSensor *SensorProx[QtddSensoresProx];
     SensorProx[0] = robot->getDistanceSensor("ps0");
     SensorProx[1] = robot->getDistanceSensor("ps1");
@@ -54,7 +52,7 @@ int main(int argc, char **argv) {
         SensorProx[i]->enable(TIME_STEP);
     }
 
-    // Configuração dos LEDs
+    // Config. dos LEDs
     LED *Leds[QtddLeds];
     Leds[0] = robot->getLED("led0");
     Leds[1] = robot->getLED("led1");
